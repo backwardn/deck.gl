@@ -12,7 +12,7 @@ const NEW_PROPS_NO_REDRAW = {
   prop1: 'one',
   prop2: 'two',
   prop3: 'three'
-}
+};
 const NEW_PROPS_REDRAW = {
   prop1: 'one',
   prop2: 'four',
@@ -203,7 +203,13 @@ test('LayerExtension#CompositeLayer passthrough', t => {
 test('LayerExtension#needsRedraw', t => {
   const extension = new MockExtension({assert: t.ok});
 
-  t.notOk(extension.needsRedraw({oldProps: BASE_PROPS, props: NEW_PROPS_NO_REDRAW}), 'needsRedraw should return false');
-  t.ok(extension.needsRedraw({oldProps: BASE_PROPS, props: NEW_PROPS_REDRAW}), 'needsRedraw should return true');
+  t.notOk(
+    extension.needsRedraw({oldProps: BASE_PROPS, props: NEW_PROPS_NO_REDRAW}),
+    'needsRedraw should return false'
+  );
+  t.ok(
+    extension.needsRedraw({oldProps: BASE_PROPS, props: NEW_PROPS_REDRAW}),
+    'needsRedraw should return true'
+  );
   t.end();
 });

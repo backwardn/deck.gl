@@ -82,11 +82,9 @@ export default class AggregationLayer extends CompositeLayer {
       oldProps[propName] = opts.oldProps[propName];
       props[propName] = opts.props[propName];
     }
-    if(
-      compareProps({oldProps, newProps: props, propTypes: this.constructor._propTypes})
-    ) {
+    if (compareProps({oldProps, newProps: props, propTypes: this.constructor._propTypes})) {
       return true;
-    };
+    }
 
     const {extensions} = opts.props;
     const redrawOpts = Object.assign({}, opts, {propTypes: this.constructor._propTypes});
