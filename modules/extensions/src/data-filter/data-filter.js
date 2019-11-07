@@ -31,15 +31,6 @@ const defaultProps = {
   filterTransformColor: true
 };
 
-// list of props, when any one changed requires re-draw
-const DEFAULT_REDRAW_PROPS = [
-  'filterEnabled',
-  'filterRange',
-  'filterSoftRange',
-  'filterTransformSize',
-  'filterTransformColor'
-];
-
 const DATA_TYPE_FROM_SIZE = {
   1: 'float',
   2: 'vec2',
@@ -54,7 +45,7 @@ export default class DataFilterExtension extends LayerExtension {
     }
 
     super({filterSize});
-    this.redrawProps = redrawProps || DEFAULT_REDRAW_PROPS;
+    this.redrawProps = redrawProps || Object.keys(defaultProps);
   }
 
   getShaders(extension) {
